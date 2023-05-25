@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavTabs from "./components/NavTabs";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from './components/pages/Home';
+import AboutMe from './components/pages/AboutMe';
+import Contact from './components/pages/Contact';
+import Projects from './components/pages/Projects';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // neeed to specify browser routes or else throws error
+    <BrowserRouter> 
+  
+    <h1>welcome to TooDooz App</h1>
+    <NavTabs/>
+    <Routes>
+      <Route path="/Home" element={<Home/>}/>
+      <Route path="/AboutMe" element={<AboutMe/>}/>
+      <Route path="/Contact" element={<Contact/>}/>
+      <Route path="/Projects" element={<Projects/>}/>
+   
+    </Routes>
+  
+   </BrowserRouter>
+  
   );
 }
 
